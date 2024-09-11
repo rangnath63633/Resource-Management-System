@@ -9,6 +9,8 @@ import com.rms.resourceManagementApplication.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 
@@ -26,5 +28,9 @@ public class ClientService {
         Client client = clientRepository.findById(clientId).orElse(null);
 //        return department != null ? getMapper().departmentToDepartmentDTOs(department) : null;
         return client != null ? clientMapper.clientToClientDTOs(client) : null;
+    }
+
+    public List<Client> getAllClients() {
+        return clientRepository.findAll();
     }
 }
