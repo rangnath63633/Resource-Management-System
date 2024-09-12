@@ -20,5 +20,6 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clientId;
+    @Column(unique = true)
     private String clientName;
 }
