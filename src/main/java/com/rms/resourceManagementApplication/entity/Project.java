@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,4 +26,6 @@ public class Project {
     private Client client;
     @ManyToMany(mappedBy = "projects")
     private List<Employee> employees;
+    private Date startDate;
+    private String owner;
 }

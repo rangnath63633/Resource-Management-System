@@ -1,5 +1,6 @@
 package com.rms.resourceManagementApplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +21,4 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clientId;
     private String clientName;
-    @OneToMany(mappedBy = "client")
-    private List<Project> projectList;
 }

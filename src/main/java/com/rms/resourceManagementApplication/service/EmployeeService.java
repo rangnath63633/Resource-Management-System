@@ -8,6 +8,7 @@ import com.rms.resourceManagementApplication.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,5 +43,9 @@ public class EmployeeService {
 //        employeeRepository.save(employee);
 
         //return departmentService.findByDepartmentId(employee.getDepartment().getDepartmentId());
+    }
+
+    public Employee getEmployeeById(Long employeeId) {
+        return employeeRepository.findById(employeeId).orElse(null);
     }
 }
