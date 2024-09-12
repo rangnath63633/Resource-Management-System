@@ -23,16 +23,14 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public Client findByClientId(Long clientId) {
+    public ClientDTO findByClientId(Long clientId) {
 
         Client client = clientRepository.findById(clientId).orElse(null);
 //        return department != null ? getMapper().departmentToDepartmentDTOs(department) : null;
-        return client != null ? client : null;
+        return client != null ? clientMapper.clientToClientDTOs(client) : null;
     }
 
     public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
-
-
 }
