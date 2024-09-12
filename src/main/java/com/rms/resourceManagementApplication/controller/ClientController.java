@@ -28,4 +28,9 @@ public class ClientController {
     public ResponseEntity<List<Client>> getAllClients() {
         return new ResponseEntity<>(clientService.getAllClients(), HttpStatus.OK);
     }
+
+    @GetMapping("/{clientName}")
+    public ResponseEntity<Client> findByClientName(@PathVariable String clientName){
+        return new ResponseEntity<>(clientService.findByClientName(clientName), HttpStatus.OK);
+    }
 }
