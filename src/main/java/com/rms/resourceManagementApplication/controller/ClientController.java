@@ -33,4 +33,10 @@ public class ClientController {
     public ResponseEntity<Client> findByClientName(@PathVariable String clientName){
         return new ResponseEntity<>(clientService.findByClientName(clientName), HttpStatus.OK);
     }
+
+    @GetMapping("/{clientId}")
+    public ResponseEntity<Client> findByClientId(@PathVariable Long clientId) {
+
+        return new ResponseEntity<>(clientService.findByClientId(clientId), HttpStatus.OK);
+    }
 }
