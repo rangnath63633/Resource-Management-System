@@ -40,4 +40,11 @@ public class EmployeeController {
         Employee employee = employeeService.createEmployeeWithDepartment(createEmployeeDTO);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
+
+    @PostMapping("/{employeeId}/{projectId}")
+    public ResponseEntity<Employee> addProjectToEmployee(@PathVariable Long employeeId, @PathVariable Long projectId){
+        Employee employee = employeeService.addProjectToEmployee(employeeId, projectId);
+        return new ResponseEntity<>(employee, HttpStatus.OK);
+    }
+
 }

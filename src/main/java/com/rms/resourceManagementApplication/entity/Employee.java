@@ -1,10 +1,12 @@
 package com.rms.resourceManagementApplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.List;
 
@@ -29,11 +31,7 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "roleId")
     private Role role;
-    @ManyToMany
-    @JoinTable(
-            name = "employee_project",
-            joinColumns = @JoinColumn(name = "employeeId"),
-            inverseJoinColumns = @JoinColumn(name = "projectId")
-    )
+    @ManyToMany(mappedBy = "employees", cascade = CascadeType.MERGE)
+    @JsonIgnore
     private List<Project> projects;
 }
